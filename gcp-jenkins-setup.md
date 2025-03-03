@@ -41,38 +41,30 @@ Note the external IP address of your VM instance.
 Connect via SSH:
 
 From the Google Cloud Console, click on "SSH" next to your VM instance or use the following command in your terminal (replace your-vm-external-ip with your VM's IP address):
-bash
-Copy Code
+
 
 
 gcloud compute ssh --zone "your-zone" "your-instance-name" --project "your-project-id"
 4. Install Java on the VM Instance
 Update the package index:
 
-bash
-Copy Code
 
 
 sudo apt update
 Install Java:
 
-bash
-Copy Code
+
 
 
 sudo apt install openjdk-11-jdk -y
-Verify Java Installation:
-
-bash
-Copy Code
+Verify Java Installation
 
 
 java -version
 5. Install Jenkins
 Add Jenkins repository:
 
-bash
-Copy Code
+
 
 
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -80,23 +72,18 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt update
 Install Jenkins:
 
-bash
-Copy Code
+
 
 
 sudo apt install jenkins -y
 Start Jenkins service:
 
-bash
-Copy Code
 
 
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 Check Jenkins status:
 
-bash
-Copy Code
 
 
 sudo systemctl status jenkins
@@ -104,10 +91,7 @@ sudo systemctl status jenkins
 Open Jenkins in a web browser:
 
 Navigate to http://your-vm-external-ip:8080.
-Retrieve initial admin password:
-
-bash
-Copy Code
+Retrieve initial admin password
 
 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -125,16 +109,14 @@ By following these steps, you can successfully set up a Jenkins server on GCP. T
 Commit and Push the Documentation
 Commit the changes:
 
-bash
-Copy Code
+
 
 
 git add gcpjenkins-setup.md
 git commit -m "Add Jenkins setup documentation for GCP"
 Push the changes:
 
-bash
-Copy Code
+
 
 
 git push origin feature-final-jenkins-review
